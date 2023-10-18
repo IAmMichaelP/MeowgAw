@@ -1,20 +1,24 @@
-// sample stray data
-const strayData = [
-  { imgSrc: 'pics/cat/1.jpg', name: 'Cool Cat', type: 'cat', gender:'female', story:"Insert short story of description."},
-  { imgSrc: 'pics/cat/2.jpg', name: 'Cute Cat', type: 'cat', gender:'female', story:"Insert short story of description."},
-  { imgSrc: 'pics/dog/1.jpg', name: 'Cute Dog', type: 'dog', gender:'male', story:"Insert short story of description."},
-  // can add more stray here
-];
+// // sample stray data
+// const strayData = [
+//   { imgSrc: 'pics/cat/1.jpg', name: 'Cool Cat', type: 'cat', gender:'female', story:"Insert short story of description."},
+//   { imgSrc: 'pics/cat/2.jpg', name: 'Cute Cat', type: 'cat', gender:'female', story:"Insert short story of description."},
+//   { imgSrc: 'pics/dog/1.jpg', name: 'Cute Dog', type: 'dog', gender:'male', story:"Insert short story of description."},
+//   // can add more stray here
+// ];
 
-// function to store stray data in localStorage
-function storeStrayData() {
-  localStorage.setItem('strayData', JSON.stringify(strayData));
-}
+// // function to store stray data in localStorage
+// function storeStrayData() {
+//   localStorage.setItem('strayData', JSON.stringify(strayData));
+// }
 
 // function to retrieve stray data from localStorage
 function retrieveStrayData() {
-  const storedData = localStorage.getItem('strayData');   
-  return storedData ? JSON.parse(storedData) : [];
+  const straysDataElement = document.getElementById('straysData');  
+  
+  const straysDataString = straysDataElement.getAttribute('data-strays');
+  console.log('retrieved');
+  console.log(straysDataString);
+  return straysDataString ? JSON.parse(straysDataString) : [];
 }
 
 // Function to display the modal with the corresponding stray data
@@ -49,8 +53,10 @@ function displayDescModal(stray) {
 
 // Update this line to call the updated function
 function displayStrayData() {
+  console.log('display');
   const container = document.querySelector('.strayContainer');
   const storedStrayData = retrieveStrayData();
+  console.log(storedStrayData);
 
   storedStrayData.forEach((stray, index) => {
     const strayBox = document.createElement('div');
@@ -74,7 +80,7 @@ function displayStrayData() {
 }
 
 // Call functions to store, retrieve, and display stray data
-storeStrayData();
+// storeStrayData();
 displayStrayData();
 
 // for filtering strays
@@ -94,7 +100,7 @@ function showStrayData(category) {
     container.innerHTML = '';
 
     // filter the stray data based on the category
-    const filteredStrayData = category === 'all' ? storedStrayData : storedStrayData.filter(stray => stray.type === category);
+    const filteredStrayData = category === 'all' ? storedStrayData : storedStrayData.filter(stray => stray.animal === category);
 
     // display the filtered stray data
     filteredStrayData.forEach((stray, index) => {

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Stray = require('./models/stray');
+const document = require('jsdom');
 
 // express app
 const app = express();
@@ -23,11 +24,14 @@ app.get('/', (req, res) =>{
 })
 
 app.get('/gallery', (req, res) =>{
-    res.render('gallery');
+    
     Stray.find()
         .then((result) => {
-            console.log(result);
+            res.render('gallery', { strays: result });
         })
+        .catch((err) => {
+            console.log(err);
+        });
 })
 
 app.post('/create', (req, res) =>{
