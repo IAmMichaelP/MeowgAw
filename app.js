@@ -16,6 +16,7 @@ app.set('view engine', 'ejs');
 
 // middleware and static files
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) =>{
     res.render('index');
@@ -23,8 +24,26 @@ app.get('/', (req, res) =>{
 
 app.get('/gallery', (req, res) =>{
     res.render('gallery');
+    Stray.find()
+        .then((result) => {
+            console.log(result);
+        })
 })
 
+app.post('/create', (req, res) =>{
+    const stray = new Stray(req.body);
+    stray.save()
+        .then((result) => {
+            res.redirect('/gallery')
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+})
 app.get('/about', (req, res) =>{
     res.render('about');
 })
+
+app.get('/create-stray', (req, res) =>{
+    res.render('create');
+});
