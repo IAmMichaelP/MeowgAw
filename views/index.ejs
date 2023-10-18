@@ -91,7 +91,7 @@
 				<h4>Find Your Furry Soulmate</h4>
 				<h1>MeowgAw</h1>
 				<p>Welcome to MeowgAw! We're dedicated to finding loving FURever homes for our furry friends. Discover a variety of adorable and playful pets, from cuddly cats to energetic dogs, waiting to bring joy into your life. Let's create a world where every pet finds a loving home.</p>
-				<button class="menu-btn button2">Check-out strays</button>
+				<button class="menu-btn button2" onclick="location.href='/gallery'">Check-out strays</button>
 				<button class="menu-btn button2">Donate</button>
 			</div>
 
@@ -150,37 +150,25 @@
 				    <i id="left" class="fa-solid fa-angle-left"></i>
 				    <div class="carousel">
 
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
+						<% if (strays.length > 0) {%>
+							<% strays.slice(0, 10).forEach(stray => { %>
 
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
+								<div class="card">
+									<img src=<%= stray.imgSrc %>>
+									<h3><%= stray.name %></h3>
+								</div>
 
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
-
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
-
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
+							<% }) %>
+						<% } else { %>
+							<p>There are no strays to display</p>
+							<% } %>
 
 				    </div>
 				    <i id="right" class="fa-solid fa-angle-right"></i>
 				  </div>
 			 </div>
 
-			 <button class="slide-btn button1">View more</button>
+			 <button class="slide-btn button1" onclick="location.href='/gallery'">View more</button>
 		</div>
 
 		<!-------------footer--------------->

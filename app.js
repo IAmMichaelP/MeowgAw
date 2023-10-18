@@ -20,7 +20,13 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) =>{
-    res.render('index');
+    Stray.find()
+        .then((result) => {
+            res.render('index', { strays: result });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 })
 
 app.get('/gallery', (req, res) =>{
