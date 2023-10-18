@@ -9,23 +9,23 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 		<!---------------favicon----------------->
 		<link rel="shortcut icon" type="image/png" href="pics/icon.png">
-		<link rel= "stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+		<link rel= "stylesheet" href="css/style.css">
 	</head>
 
 	<body>
 	<!-------------header--------------->
-		<header id="header" class="header">
-			<a href="index.html" class="logo"><img src="pics/logo.png" id="logopic"></a>
+		<header id="header" class="header" style="background: linear-gradient(245.59deg, #ffdcd1 0%, #f1c5b7 28.53%, #a96357 75.52%);">
+			<a href="/" class="logo"><img src="pics/logo.png" id="logopic"></a>
 
 			<ul class="navlist">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="#">FAQs</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/gallery">Gallery</a></li>
+				<li><a href="/about">About Us</a></li>
+				<li><a href="#">FAQs</a></li>
 			</ul>
-
+ 
 			<ul class="sign">
 				<li><button class="user_auth" onclick="openPopup('signin-popup')">Sign Up</button></li>
             	<li><button class="modal user_auth" onclick="openPopup('login-popup')">Sign In</button></li>
@@ -84,103 +84,37 @@
 		    </div>
 		</header>
 
-		<!-------------banner--------------->
-		<section class="menu">
-			<div class="menu-text">
-				<h5>K<sup>2</sup>MJS</h5>
-				<h4>Find Your Furry Soulmate</h4>
-				<h1>MeowgAw</h1>
-				<p>Welcome to MeowgAw! We're dedicated to finding loving FURever homes for our furry friends. Discover a variety of adorable and playful pets, from cuddly cats to energetic dogs, waiting to bring joy into your life. Let's create a world where every pet finds a loving home.</p>
-				<button class="menu-btn button2">Check-out strays</button>
-				<button class="menu-btn button2">Donate</button>
-			</div>
+		<!---gallery banner---->
+		<div class="galleryBanner reveal">
 
-			<div class="menu-img">
-				<img src="pics/catto.png">
-			</div>
-		</section>
+			<div class="searchBar">
+				<input type="search" placeholder="Search...">
+    			<button type="submit"><i class="fas fa-search"></i></button>
+    		</div>
 
-		<!-------------icons-------------->
-		<div class="icons">
-			<a href="#"><i class="ri-instagram-fill"></i></a>
-			<a href="#"><i class="ri-youtube-fill"></i></a>
-			<a href="#"><i class="ri-facebook-circle-fill"></i></a>
 		</div>
 
-		<div class="scroll-down">
-		    <a href="#footer" id="scroll-link">
-		      <i class="ri-arrow-down-line"></i>
-		    </a>
-		 </div>
+		<div class="categoryButtons reveal">
+			<button onclick="showStrayData('all')" id="allBtn">All</button>
+	    	<button onclick="showStrayData('cat')" id="catBtn">Cats</button>
+	    	<button onclick="showStrayData('dog')" id="dogBtn">Dogs</button>
+  		</div>
 
-		<!-------------adoption info----------->
-		<div class="infosection">
-			<h2>Planning to Adopt a Pet?</h2>
-
-			<div id="infos">
-				<div class="info-card">
-					<h4>Checklist for New Adopters</h4>
-					<img class="infoimg" src="pics/Checklist.png">
-					<p>Make your adoption exper as smooth as possible.</p>
-					<button class="button1">Learn More</button>
-				</div>
-
-				<div class="info-card">
-					<h4>Furparent Guide 101</h4>
-					<img class="infoimg" src="pics/info.png">
-					<p>All you need to know on what to expect as a new pet owner.</p>
-					<button class="button1">Learn More</button>
-				</div>
-
-				<div class="info-card">
-					<h4>FAQs About Pet Adoption</h4>
-					<img class="infoimg" src="pics/adoption.png">
-					<p>Get answers to all of your questions about pet adoption.</p>
-					<button class="button1">Learn More</button>
-				</div>
-			</div>
+  		<div id="descModal" class="strayModal reveal">
+  			<div class="descContainer">
+    			<span class="close" onclick="closePopup('descModal')" style="color:#a96357">&times;</span>
+    			<div id="desc">
+      			<!---content in js---->
+    			</div>
+  			</div>
 		</div>
 
-		<!------------slider-------------->
-		<div class="slider-container">
-			<h2>Strays Available for Adoption</h2>
-			<div class="slider">
+		<div class="galleryBody reveal">
 
-				  <div class="wrapper">
-				    <i id="left" class="fa-solid fa-angle-left"></i>
-				    <div class="carousel">
+			<div class="strayContainer reveal">
+				<!---content in js---->
+			</div>
 
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
-
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
-
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
-
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
-
-				      <div class="card">
-				      	<img src="pics/stray1.jpg">
-				      	<h3>Cool Cat</h3>
-				      </div>
-
-				    </div>
-				    <i id="right" class="fa-solid fa-angle-right"></i>
-				  </div>
-			 </div>
-
-			 <button class="slide-btn button1">View more</button>
 		</div>
 
 		<!-------------footer--------------->
@@ -238,6 +172,7 @@
 		<script src="https://unpkg.com/scrollreveal"></script>
 		<script src="js/sliderscript.js"></script>
 		<script src="js/script.js"></script>
+		<script src="js/galleryscript.js"></script>
 
 	</body>
 
